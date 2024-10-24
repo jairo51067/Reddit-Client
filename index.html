@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cliente Reddit</title>
+  <link rel="stylesheet" href="styles.css">
+  
+</head>
+
+<body>
+  <header>
+    <img src="https://www.edigitalagency.com.au/wp-content/uploads/Reddit-logo-horizontal-small-PNG.png" width="147px"
+      height="41px" alt="logo Reddit">
+      <h1>Cliente Reddit</h1>
+  </header>
+  <hr>
+  <!-- Botón para abrir el modal -->
+  <button id="openModalBtn">+ Add Subreddit</button>
+
+  <main>
+    <div id="subreddit-rails"></div>
+
+    <!-- Modal -->
+    <div id="subredditModal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Add Subreddit</h2>
+        <div id="subreddit-input">
+          <label for="add-subreddit">Ingrese el nombre del Subreddit :</label>
+          <input type="text" id="subreddit-name" placeholder="Nombre del subreddit">
+          <button id="add-subreddit">Agregar Subreddit</button>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <footer>
+    <div class="footer-acercaDe">
+      <h3>Acerca de Reddit</h3>
+      <p>Este sitio web utiliza la API de Reddit para mostrar las últimas publicaciones de subreddits.</p>
+      <a href="https://blog.hubspot.es/marketing/que-es-reddit " target="_blank">Que es Reddit</a>
+    </div>
+
+    <div class="footer-roadmapSh">
+      <h3>Proyecto ejecutado en el roadmap</h3>
+      <a href="https://roadmap.sh/" target="_blank"> roadmap.sh</a>
+      <a href="https://roadmap.sh/projects/reddit-client" target="_blank"> página del proyecto</a>
+    </div>
+
+    <div class="footer-infoDev">
+      <p>Todos los derechos reservados © 2024</p>
+      <h4>Author: Jairo Cárdenas<br>
+        <a href="mailto:jairo.cardenas.dev@gmail.com">jairo.cardenas.dev@gmail.com</a>
+      </h4>
+    </div>
+  </footer>
+
+  <script defer src="script.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,322 @@
+:root {
+  --primary-color: #007bff;
+  --secondary-color: #f4f4f4;
+  --primary-logo: #fb3e04;
+  --secondary-logo: #f06834;
+  --text-color1: #fff;
+  --text-color2: #333;
+  --button-color: #000
+}
+
+/* Estilos globales */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  position: relative;
+  min-height: 100vh;
+  /* Asegura que el body ocupe al menos toda la altura de la ventana */
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: var(--secondary-color);
+}
+
+/* Estilos de la cabecera */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+
+/* Estilos para button + Add Subreddit */
+#openModalBtn {
+  background-color: var(--primary-logo);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin: 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+/* Efecto al pasar el ratón */
+#openModalBtn:hover {
+  background-color: var(--secondary-logo);
+}
+
+/* Efecto al hacer clic */
+#openModalBtn:active {
+  background-color: var(--secondary-logo);
+  transform: translateY(1px);
+  /* Pequeño movimiento hacia abajo */
+}
+
+/* Estilos del contenido */
+main {
+  max-width: 1200px;
+  margin: 1%;
+  display: flex;
+  justify-content: start;
+  flex-wrap: wrap;
+}
+
+#subreddit-input {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 3%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+#subreddit-input label {
+  margin: 3%;
+  padding: 3%;
+  font-weight: bold;
+}
+
+#subreddit-input input[type="text"] {
+  margin: 3%;
+  padding: 3%;
+  width: 100%;
+  border-radius: 10px;
+}
+
+#subreddit-input button {
+  margin: 3%;
+  padding: 3%;
+  width: 100%;
+  background-color: var(--button-color);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+#subreddit-rails {
+  margin-bottom: 100px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* Estilos del modal */
+.modal {
+  display: none;
+  /* Oculto por defecto */
+  position: fixed;
+  /* Posicionamiento fijo */
+  z-index: 1;
+  /* Por encima de otros elementos */
+  left: 0;
+  top: 0;
+  width: 100%;
+  /* Ancho completo */
+  height: 100%;
+  /* Altura completa */
+  overflow: auto;
+  /* Habilitar desplazamiento si es necesario */
+  background-color: rgb(0, 0, 0);
+  /* Color de fondo negro */
+  background-color: rgba(0, 0, 0, 0.4);
+  /* Fondo negro con opacidad */
+}
+
+/* Contenido del modal */
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  /* Centrado vertical */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  /* Ancho del modal */
+  max-width: 500px;
+  /* Ancho máximo */
+  border-radius: 10px;
+  /* Bordes redondeados */
+}
+
+/* Botón de cerrar */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Estilos de los carriles */
+.rail {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin: 10px;
+  padding: 10px;
+  width: 300px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+  background-color: white;
+  display: inline-block;
+}
+
+/* Estilos de los botones */
+.remove-btn,
+.refresh-btn {
+  background-color: var(--primary-logo);
+  color: white;
+  border: none;
+  padding: 7px;
+  border-radius: 5px;
+  cursor: pointer;
+  /* Espacio entre botones */
+  width: 40%;
+  margin: 10px 10px;
+}
+
+.remove-btn:hover,
+.refresh-btn:hover {
+  background-color: var(--secondary-logo);
+}
+
+.loading {
+  display: none;
+  font-size: 1em;
+  color: #007bff;
+  margin-top: 10px;
+}
+
+/* Estilos de las publicaciones */
+h1 {
+  text-align: end;
+}
+
+h2 {
+  font-size: 1.5em;
+}
+
+.post {
+  margin-bottom: 10px;
+}
+
+.post img {
+  width: 100%;
+  height: auto;
+}
+
+.post.author {
+  font-size: 0.8em;
+}
+
+.post.comments {
+  font-size: 0.8em;
+}
+
+.post.score {
+  font-size: 0.8em;
+}
+
+/* Estilos del pie de página */
+footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: #f4f4f4;
+  color: #333;
+  font-size: 0.8em;
+  text-align: start;
+  line-height: 1.3;
+  border-top: 2px solid #888;
+}
+
+.footer-acercaDe {
+  width: 33%;
+  margin-right: 10px;
+  cursor: pointer;
+  transition: color 0.3s ease-in-out;
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  a:hover {
+    color: #0056b3;
+  }
+}
+
+.footer-infoDev {
+  width: 33%;
+  text-align: end;
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  a:hover {
+    color: #0056b3;
+  }
+}
+
+.footer-roadmapSh {
+  width: 33%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  a:hover {
+    color: #0056b3;
+  }
+}
+
+@media (max-width: 600px) {
+  main {
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+  }
+
+  footer {
+    flex-direction: column;
+    align-items: start;
+    gap: 10px;
+  }
+
+  .footer-acercaDe,
+  .footer-infoDev,
+  .footer-roadmapSh {
+    width: 100%;
+    text-align: start;
+    display: block;
+  }
+
+  .rail {
+    width: 100%;
+    margin: 10px 0px 150px 0px;
+  }
+}
